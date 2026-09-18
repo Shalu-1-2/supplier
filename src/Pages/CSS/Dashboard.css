@@ -1,0 +1,12 @@
+.dashboard{
+    width: 100vw;
+    height: 100vh;
+    padding: 5px;
+}
+.dashboard-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
