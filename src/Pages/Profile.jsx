@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Pages/CSS/Profile.css"
+import BottomBar from '../Components/BottomBar'
 const Profile = () => {
   return (
     <>
@@ -19,7 +20,7 @@ const Profile = () => {
 
     
   
-    
+    <BottomBar/>
     </>
   )
 }

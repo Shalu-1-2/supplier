@@ -3,13 +3,14 @@ import{BrowserRouter as Router,Routes,Route}from 'react-router-dom'
 import Splash from './Pages/Splash'
 import Register from './Pages/Register'
 import Login from './Pages/Login'
-import Dashboard from './Pages/Dashboard'
 import Welcome from './Pages/Welcome'
 import Orders from './Pages/Orders'
 import Products from './Pages/Products'
 import Profile from './Pages/Profile'
 import Users from './Pages/Users'
 import AddProduct from './Pages/AddProduct'
+import BottomBar from './Components/BottomBar'
+import Home from './Pages/Home'
 const App = () => {
 
 
@@ -22,7 +23,8 @@ const App = () => {
           <Route path='/' element={<Splash/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path='/bottom' element={<BottomBar/>}/>
+          <Route path="/home" element={<Home/>} />
           <Route path="/welcome" element={<Welcome/>} />
           <Route path='/orders' element={<Orders/>}/>
           <Route path='/products' element={<Products/>}/>

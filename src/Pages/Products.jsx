@@ -1,13 +1,15 @@
 import React from 'react'
+import BottomBar from '../Components/BottomBar'
+import AddProduct from './AddProduct'
 
 
 const Products = () => {
   return (
   <>
 
-  <h1>Products</h1>
+  <AddProduct/>
 
-
+<BottomBar/>
   
   </>
   )

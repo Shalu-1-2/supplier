@@ -1,4 +1,5 @@
 import React from 'react'
+import BottomBar from '../Components/BottomBar'
 const Orders = () => {
   return (
    <>
@@ -6,7 +7,7 @@ const Orders = () => {
   <h1>orders Page</h1>
 
   
-   
+   <BottomBar/>
    
    
    </>
