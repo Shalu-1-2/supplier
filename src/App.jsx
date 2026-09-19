@@ -9,6 +9,7 @@ import Orders from './Pages/Orders'
 import Products from './Pages/Products'
 import Profile from './Pages/Profile'
 import Users from './Pages/Users'
+import AddProduct from './Pages/AddProduct'
 const App = () => {
 
 
@@ -28,30 +29,9 @@ const App = () => {
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/users' element={<Users/>}/>
          
+          <Route path="/products" element={<AddProduct/>} />
         </Routes>
        </Router>
-
-
-{/* cards-page */}
-  {/* <Dashboard
-  title="Total Users"
-  value="120"
-/>
-
-<Dashboard
-  title="Total Products"
-  value="50"
-/>
-
-<Dashboard
-  title="Total Orders"
-  value="80"
-/>
-
-<Dashboard
-  title="Total Revenue"
-  value="₹25,000"
-/> */}
 
 
     </>
