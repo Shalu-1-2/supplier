@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.orders-header-outer {
+    height: 100vh;
+    width: 100%;
+    margin: 10px auto;
+
+}
+
+.orders-outer {
+    margin-top: 10px;
+  margin-left: 12px;
+    height: 50px;
+    width: 100%;
+
+
+
+}
+
+.orders-outer>h1 {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 0 10px;
+
+}
+
+.orders-category-outer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 0 23px;
+    margin: 25px 5px;
+    
+
+}
+
+.orders-category-outer button {
+    padding: 14px 6px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: none;
+    background-color: white;
+
+
+}
+
+.orders-category-outer button:hover {
+    transform: translateY(-30);
+    color: white;
+    background-color: rgb(113, 164, 223);
+}
+
+.orders-outer-cards {
+    min-height: 700px;
+    width: 100%;
+    margin-top: 20px;
+
+
+}
+
+.orders-outer-card {
+
+    padding: 15px 20px;
+    margin: 20px 24px;
+    border-radius: 10px;
+    min-height: 120px;
+    box-shadow: 0px 5px 10px rgb(209, 197, 197);
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+
+}
+
+.orders-image {
+    display: flex;
+    text-align: center;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: rgb(181, 196, 243);
+    position: relative;
+    margin: 5px 8px 0px 0px;
+
+}
+
+.orders-image>span {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: white;
+}
+
+.orders-content {
+    padding: 5px 0px;
+    font-size: 17px;
+}
+
+.orders-content-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    position: relative;
+}
+
+.orders-icon {
+    position: absolute;
+    top: 5px;
+    left: 130%;
+}
+
+.orders-content-h>p {
+    line-height: 1.6;
+
+}
+
+.pending {
+    margin-top: 7px;
+    border-radius: 8px;
+    color: grey;
+    height: 24px;
+    color: rgb(233, 233, 131);
+    font-weight: 700;
+}
+
+.Cancel {
+    margin-top: 7px;
+    border-radius: 8px;
+    color: rgb(228, 223, 223);
+    height: 24px;
+    color: red;
+    font-weight: 700;
+}
+
+.process {
+    margin-top: 7px;
+    border-radius: 8px;
+    color: rgb(228, 223, 223);
+    height: 24px;
+    color: green;
+    font-weight: 800;
+
+}
+
+@media (max-width: 768px) {
+
+    .orders-header-outer {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+    }
+
+    .orders-outer {
+        width: 100%;
+        margin-top: 12px;
+        margin-left: 0;
+        height: auto;
+    }
+
+    .orders-outer > h1 {
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .orders-category-outer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        padding: 0 15px;
+        overflow-x: auto;
+         white-space: nowrap; 
+    }
+
+    .orders-category-outer button {
+        padding: 11px 10px;
+         font-size: 13px;
+         flex-shrink: 0;  
+    }
+
+    .orders-outer-cards {
+        width: 100%;
+        min-height: auto;
+        margin-top: 20px;
+    }
+
+    .orders-outer-card {
+        width: calc(100% - 30px);
+        min-height: 135px;
+        margin: 15px;
+        padding: 15px 12px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .orders-image {
+        flex-shrink: 0;
+        height: 36px;
+        width: 36px;
+        margin: 5px 0 0 0;
+    }
+
+    .orders-content {
+        width: 100%;
+        min-width: 0;
+        padding: 5px 0;
+        font-size: 14px;
+    }
+
+    .orders-content-h {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    .orders-content-h > p {
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .orders-icon {
+        position: static;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    .pending,
+    .Cancel,
+    .process {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+} 
