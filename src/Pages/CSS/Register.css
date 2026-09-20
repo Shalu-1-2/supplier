@@ -9,13 +9,14 @@ body {
     background: #f4f8fb; 
     color: #1594bd; 
     min-height: 100vh; 
-    font-family: serif; 
+    font-family: serif;   
 } 
  
 .mobile-container { 
     width: 100%; 
     max-width: 420px; 
-    min-height: 100vh; 
+    min-height: 100vh;
+    border-radius: 20px;
     margin: 0 auto; 
     background: #ffffff; 
     padding: 24px 18px 30px; 
@@ -360,4 +361,71 @@ body {
         height: 43px;
         font-size: 13px;
     }
+}
+.water-type-options {
+    width: 100%;
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 13px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #1594bd;
+    font-weight: 500;
+}
+
+.checkbox-option input {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #0284c7;
+    cursor: pointer;
+}
+
+.checkbox-option span {
+    white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+    .water-type-options {
+        gap: 15px;
+        padding: 9px 11px;
+    }
+
+    .checkbox-option {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .checkbox-option input {
+        width: 16px;
+        height: 16px;
+    }
+}
+.login-link {
+    text-align: center;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.login-link a {
+    color: #0284c7;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }

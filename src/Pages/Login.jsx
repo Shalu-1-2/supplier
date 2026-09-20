@@ -42,15 +42,10 @@ const Login = () => {
 
                 <div className="login-logo-box">
 
-                    {/* <svg
-                        className="login-logo-icon"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                    </svg> */}
+                 
 
                     <span className="login-brand-name">
-                        {/* WaterSupply */}
+                        <img src="./public/logo-bg.png" alt=""  />
                     </span>
 
                 </div>
