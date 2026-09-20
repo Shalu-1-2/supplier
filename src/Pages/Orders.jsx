@@ -3,6 +3,8 @@ import "../Pages/CSS/Orders.css"
 import BottomBar from '../Components/BottomBar'
 import { FaUser } from "react-icons/fa";
 import { IoChevronBack } from "react-icons/io5";
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 
 const Orders = () => {
   return (
@@ -10,6 +12,11 @@ const Orders = () => {
 
  <div className="orders-header-outer">
   <div className="orders-outer">
+    <div className="icons-back">
+      <IoMdArrowRoundBack />
+
+    </div>
+    
     <h1>Customer Orders</h1>
   </div>
   <div className="orders-category-outer">
@@ -29,7 +36,7 @@ const Orders = () => {
         <h3>#ORD001</h3>
        <div className="orders-content-h">
          <p>5 items | 320</p> 
-         <p className='orders-icon'><IoChevronBack /></p>
+         {/* <p className='orders-icon'><IoChevronBack /></p> */}
        </div>
         <p>Placed 10 Apr 2025 11:30AM </p>
       </div>
@@ -45,7 +52,7 @@ const Orders = () => {
         <h3>#ORD001</h3>
        <div className="orders-content-h">
          <p>5 items | 320</p> 
-         <p className='orders-icon'><IoChevronBack /></p>
+         {/* <p className='orders-icon'><IoChevronBack /></p> */}
        </div>
         <p>Placed 10 Apr 2025 11:30AM </p>
       </div>
@@ -61,7 +68,7 @@ const Orders = () => {
         <h3>#ORD001</h3>
        <div className="orders-content-h">
          <p>5 items | 320</p> 
-         <p className='orders-icon'><IoChevronBack /></p>
+         {/* <p className='orders-icon'><IoChevronBack /></p> */}
        </div>
         <p>Placed 10 Apr 2025 11:30AM </p>
       </div>

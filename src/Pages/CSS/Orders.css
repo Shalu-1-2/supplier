@@ -10,21 +10,28 @@
     margin: 10px auto;
 
 }
+.icons-back{
+font-size: 26px;
+}
 
 .orders-outer {
     margin-top: 10px;
   margin-left: 12px;
     height: 50px;
     width: 100%;
-
+    display: flex;
+justify-content: space-between;
 
 
 }
 
+
+
 .orders-outer>h1 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     padding: 0 10px;
+
 
 }
 
@@ -147,7 +154,7 @@
 
 }
 
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
 
     .orders-header-outer {
         width: 100%;
@@ -241,4 +248,4 @@
         font-size: 13px;
     }
 
-} 
+}  
