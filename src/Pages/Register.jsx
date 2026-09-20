@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import './CSS/Register.css'
 import { useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 
 const Register = () => {
     const navigate = useNavigate()
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
-    const [waterType, setWaterType] = useState("")
+    const [waterType, setWaterType] = useState([]);
     const [location, setLocation] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -18,30 +19,30 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  const handleRegister = (e) => {
-    e.preventDefault()
+    const handleRegister = (e) => {
+        e.preventDefault()
 
-    if (password !== confirmPassword) {
-        alert("Password and Confirm Password do not match")
-        return
+        if (password !== confirmPassword) {
+            alert("Password and Confirm Password do not match")
+            return
+        }
+
+        const supplier = {
+            name,
+            phone,
+            waterType,
+            location,
+            email,
+            password,
+            supplyRange
+        }
+
+        localStorage.setItem("supplier", JSON.stringify(supplier))
+
+        alert("Supplier Registered Successfully")
+
+        navigate("/login")
     }
-
-    const supplier = {
-        name,
-        phone,
-        waterType,
-        location,
-        email,
-        password,
-        supplyRange
-    }
-
-    localStorage.setItem("supplier", JSON.stringify(supplier))
-
-    alert("Supplier Registered Successfully")
-
-    navigate("/login")
-}
     return (
         <>
             <div className="mobile-container">
@@ -50,9 +51,6 @@ const Register = () => {
 
                     <div className="logo-box">
 
-                        <svg className="logo-icon" viewBox="0 0 24 24">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                        </svg>
 
                         <span className="brand-name">
                             WaterSupply
@@ -136,37 +134,43 @@ const Register = () => {
 
                         <div className="input-wrapper">
 
-                            <select
-                                id="water-type"
-                                className="form-select"
-                                value={waterType}
-                                onChange={(e) => setWaterType(e.target.value)}
-                                required
-                            >
+                            <div className="water-type-options">
+                                <label className="checkbox-option">
+                                    <input
+                                        type="checkbox"
+                                        value="cold"
+                                        checked={waterType.includes("cold")}
+                                        onChange={(e) => {
+                                            if (e.target.checked) {
+                                                setWaterType([...waterType, "cold"])
+                                            } else {
+                                                setWaterType(
+                                                    waterType.filter((type) => type !== "cold")
+                                                )
+                                            }
+                                        }}
+                                    />
+                                    <span>Cold Water</span>
+                                </label>
 
-                                <option value="" disabled>
-                                    Select water type
-                                </option>
-
-                                <option value="cold">
-                                     Cold Water
-                                </option>
-
-                                <option value="Normal">
-                                    Normal Water
-                                </option>
-
-                              
-
-                            </select>
-
-                            <svg
-                                className="select-arrow"
-                                viewBox="0 0 24 24"
-                            >
-                                <path d="M7 10l5 5 5-5z" />
-                            </svg>
-
+                                <label className="checkbox-option">
+                                    <input
+                                        type="checkbox"
+                                        value="normal"
+                                        checked={waterType.includes("normal")}
+                                        onChange={(e) => {
+                                            if (e.target.checked) {
+                                                setWaterType([...waterType, "normal"])
+                                            } else {
+                                                setWaterType(
+                                                    waterType.filter((type) => type !== "normal")
+                                                )
+                                            }
+                                        }}
+                                    />
+                                    <span>Normal Water</span>
+                                </label>
+                            </div>
                         </div>
 
                     </div>
@@ -249,7 +253,7 @@ const Register = () => {
                                 aria-label="Toggle password visibility"
                             >
 
-                              <FaEye />
+                                <FaEye />
 
 
                             </button>
@@ -286,7 +290,7 @@ const Register = () => {
                                 aria-label="Toggle password visibility"
                             >
 
-                               <FaEye />
+                                <FaEye />
 
                             </button>
 
@@ -325,6 +329,10 @@ const Register = () => {
                     >
                         REGISTER
                     </button>
+                    <div className="login-link">
+                        Already have an account?
+                        <Link to="/login">Login</Link>
+                    </div>
 
                 </form>
 
