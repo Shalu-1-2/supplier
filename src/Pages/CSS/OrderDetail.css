@@ -1,9 +1,302 @@
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Main Page */
+
+.order-details-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f4faff;
+    font-family: Arial, sans-serif;
+    color: #263b4d;
+}
+
+/* Header */
+
+.order-details-header {
+    height: 60px;
+    width: 100%;
+     background: linear-gradient(
+        90deg,
+        #098dd3,
+        #087cc4
+    ); 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    color: white;
+}
+
+.order-details-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Back Button */
+
+.order-back-btn {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+    color: white;
+
+    font-size: 25px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Main Container */
+
+.order-details-container {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto;
+    padding: 16px 12px 25px;
+}
+
+/* Order Summary */
+
+.order-summary {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 14px;
+
+    box-shadow: 0 2px 8px rgba(
+        0, 100, 180, 0.04
+    );
+}
+
+.order-summary-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-summary-top h2 {
+    font-size: 16px;
+    color: #243e58;
+}
+
+.order-status {
+    background: #ffbf16;
+    color: white;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    padding: 7px 13px;
+    border-radius: 20px;
+}
+
+.order-date {
+    margin-top: 10px;
+
+    font-size: 11px;
+    color: #8294a3;
+}
+
+.order-date span {
+    color: #8294a3;
+}
+
+/* Customer Details */
+
+.customer-details {
+    margin-top: 12px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 14px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #253f58;
+    margin-bottom: 14px;
+}
+
+.section-title svg {
+    color: #168bd0;
+    font-size: 15px;
+}
+
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+
+    font-size: 12px;
+    color: #3f566a;
+
+    line-height: 1.5;
+}
+
+.info-label {
+    color: #8294a3;
+}
+
+/* Ordered Products */
+
+.ordered-products {
+    margin-top: 12px;
+
+    background: white;
+    border-radius: 10px;
+    padding: 15px 14px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.product-item {
+    display: grid;
+    grid-template-columns: 34px 1fr 40px 48px;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.product-icon {
+    width: 30px;
+    height: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #14a5d4;
+    font-size: 26px;
+}
+
+.product-name {
+    font-size: 12px;
+    color: #40566a;
+}
+
+.product-quantity {
+    font-size: 11px;
+    color: #40566a;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #40566a;
+    text-align: right;
+}
+
+/* Total Amount */
+
+.total-amount {
+    margin-top: 12px;
+
+    background: white;
+    border-radius: 10px;
+    padding: 18px 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #253f58;
+}
+
+.total-amount strong {
+    font-size: 15px;
+    color: #263b4d;
+}
+
+/* Update Status Button */
+
+.update-status-btn {
+    width: 100%;
+    height: 42px;
+
+    margin-top: 16px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #078bd3;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.update-status-btn:hover {
+    background: #0678b8;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .order-details-header {
+        height: 60px;
+    }
+
+    .order-details-container {
+        padding: 12px 10px 25px;
+    }
+
+    .order-summary,
+    .customer-details,
+    .ordered-products,
+    .total-amount {
+        border-radius: 9px;
+    }
+
+    .info-row {
+        grid-template-columns: 72px 1fr;
+    }
 
 }
-.order-details-header-outer{
-    
+
+@media (min-width: 768px) {
+
+    .order-details-container {
+        max-width: 600px;
+        padding-top: 24px;
+    }
+
+    .order-details-header {
+        height: 64px;
+    }
+
 }
