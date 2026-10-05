@@ -4,8 +4,11 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: white;
+    background-color: rgb(233, 248, 252);
     z-index: 2;
+    position: sticky;
+    top: 0;
+
     gap: 150px;
 
 }
@@ -13,7 +16,7 @@
     font-size: 25px;
 }
 .home-header-top .header-icon {
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(20, 131, 168);
 }
 
@@ -21,7 +24,7 @@
 .welcome-home-outer{
     width: 90%;
     height: 130px;
-    background-color: rgb(203, 233, 233);
+    background-color: rgb(222, 247, 247);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -99,5 +102,79 @@
 .home-card p{
     font-size: 25px;
     font-weight: 600;
+}
+
+.quick-heading{
+    width: 90%;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.home-quick-action{
+     display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+    /* height: 280px; */
+    margin: 10px auto;
+    margin-bottom: 20%;
+    padding: 20px;
+    width: 90%;
+    gap: 20px;
+}
+.add-product-route{
+    height: 150px;
+    width: 170px;
+    /* background-color: rgb(180, 213, 234); */
+    background-color: transparent;
+    /* border: 0.3px solid rgb(26, 144, 180); */
+    box-shadow: 1px 0px 8px rgb(131, 166, 225);
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 10px;
+}
+.add-product-icon{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(24, 111, 203);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.view-order-route{
+    height: 150px;
+    width: 170px;
+    /* background-color: rgb(180, 213, 234); */
+    background-color: transparent;
+    /* border: 0.3px solid rgb(26, 144, 180); */
+    box-shadow: 1px 0px 8px rgb(131, 166, 225);
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.view-order-icon{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(7, 132, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50%;
 }
 

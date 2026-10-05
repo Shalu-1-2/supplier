@@ -1,0 +1,81 @@
+.myproduct-outer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+
+}
+.myproduct-outer h2{
+    color: darkslategray;
+
+}
+.myproduct-outer .add-product-btn{
+    height: 50px;
+    width: 150px;
+    background-color: rgb(69, 100, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.my-products-supply{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.my-products-card{
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 90%;
+    margin: 20px auto;
+    height: 130px;
+    padding: 10px;
+     box-shadow: 1px 0px 8px rgb(131, 166, 225);
+border-radius: 15px;
+}
+.my-products-supply img{
+    height: 100px;
+    border-radius: 20px;
+}
+.my-products-supply h3{
+    margin-top: 15px;
+}
+.my-products-supply p{
+    margin-top: 4px;
+    color: blue;
+    font-weight: 600;
+
+}
+.my-product-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+.my-product-price p{
+    color: darkslategray;
+}
+.my-products-edit{
+    text-decoration: none;
+    color: blue;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    width: 80px;
+    background-color: rgb(201, 241, 241);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}

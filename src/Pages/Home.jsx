@@ -1,19 +1,21 @@
 import React from 'react'
 import BottomBar from '../Components/BottomBar'
 import "../Pages/CSS/Home.css"
-import { MdAddAlert } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { FaCartFlatbed } from "react-icons/fa6";
 import { GrDeliver } from "react-icons/gr";
 import { VscVmPending } from "react-icons/vsc";
 import { MdOutlineFreeCancellation } from "react-icons/md";
+import { FaPlus } from "react-icons/fa6";
+import { IoMdNotificationsOutline } from "react-icons/io";
+
 const Home = () => {
   return (
     <>
       <div className="home-header-top">
         <h3>Dashboard</h3>
         
-          <NavLink className='header-icon'><MdAddAlert /> </NavLink>
+          <NavLink className='header-icon'><IoMdNotificationsOutline/> </NavLink>
      
       </div>
 
@@ -46,6 +48,20 @@ const Home = () => {
           <h3>Cancelled</h3>
           <p>9</p>    
       </div>
+    </div>
+
+<h3 className='quick-heading'>Quick Action</h3>
+    <div className="home-quick-action">
+      <div className="add-product-route">
+<NavLink className='add-product-icon' to='/add-product'><FaPlus/></NavLink>
+<p>Add Product</p>
+      </div>
+
+ <div className="view-order-route">
+<NavLink className='view-order-icon' to='/orders'><GrDeliver/></NavLink>
+<p>View Order</p>
+      </div>
+
     </div>
      <BottomBar/>
     </>

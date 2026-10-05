@@ -25,6 +25,19 @@ justify-content: space-between;
 
 }
 
+.order-view{
+    height: 30px;
+    width: 60px;
+    background-color: rgb(24, 90, 190);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
 
 
 .orders-outer>h1 {

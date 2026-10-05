@@ -4,7 +4,7 @@ import BottomBar from '../Components/BottomBar'
 import { FaUser } from "react-icons/fa";
 import { IoChevronBack } from "react-icons/io5";
 import { IoMdArrowRoundBack } from "react-icons/io";
-
+import { NavLink } from 'react-router-dom';
 
 const Orders = () => {
   return (
@@ -42,6 +42,7 @@ const Orders = () => {
       </div>
       <div className="pending">
         <p>Pending</p>
+        <NavLink to='/order-detail' className='order-view'>View</NavLink>
       </div>
     </div>
     <div className="orders-outer-card">
@@ -58,6 +59,8 @@ const Orders = () => {
       </div>
       <div className="process">
         <p>Process</p>
+        <NavLink to='/order-detail' className='order-view'>View</NavLink>
+
       </div>
     </div>
     <div className="orders-outer-card">
@@ -74,6 +77,8 @@ const Orders = () => {
       </div>
       <div className="Cancel">
         <p>Cancel</p>
+        <NavLink to='/order-detail' className='order-view'>View</NavLink>
+
       </div>
     </div>
   </div>
