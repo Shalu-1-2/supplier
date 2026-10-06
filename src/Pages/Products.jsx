@@ -15,7 +15,7 @@ const Products = () => {
       price:35,
       stock:50,
       image:"./water-bottle.png"
-    }
+    }  
   ]
 
  
@@ -43,7 +43,7 @@ const Products = () => {
           <h3>{products.name}</h3>
           <p> ₹{products.price}</p>
           <div className="my-product-price">
-            <p>Stock :{products.stock}</p>
+            <p>Stock:{products.stock}</p>
             <NavLink className='my-products-edit'>Edit</NavLink>
           </div>
         </div>
