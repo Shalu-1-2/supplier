@@ -12,12 +12,14 @@ const Orders = () => {
 
  <div className="orders-header-outer">
   <div className="orders-outer">
-    <div className="icons-back">
+    <div className="icons-header">
+  <div className="icons-back">
       <IoMdArrowRoundBack />
-
     </div>
-    
-    <h1>Customer Orders</h1>
+      <h1>Customer Orders</h1>
+    </div>
+  
+   
   </div>
   <div className="orders-category-outer">
 <button>All Orders</button>
