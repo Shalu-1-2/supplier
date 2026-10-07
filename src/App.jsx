@@ -13,6 +13,8 @@ import AddProduct from "./Pages/AddProduct";
 import BottomBar from "./Components/BottomBar";
 import Home from "./Pages/Home";
 import OrderDetail from "./Pages/OrderDetail";
+import EditProfile from "./Pages/EditProfile";
+
 
 const App = () => {
   return (
@@ -40,7 +42,7 @@ const App = () => {
         <Route path="/users" element={<Users />} />
 
         <Route path="/bottom" element={<BottomBar />} />
-
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
     </Router>
   );

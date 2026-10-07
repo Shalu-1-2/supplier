@@ -1,28 +1,35 @@
 .add-product {
     width: 100%;
     min-height: 100vh;
-    padding: 0 15px 90px;
-    background: #f5fbfd;
+    padding: 0 15px 40px;
+    background: #f7fcff;
 }
 
 .product-heading {
     width: 100%;
+    max-width: 600px;
     height: 65px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 13px;
 }
 
 .product-icon a {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e8f8fc;
-    color: #159bc5;
+    background: #e5f6fc;
+    color: #087fbd;
     border-radius: 50%;
     text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.product-icon a:hover {
+    background: #d4f0f9;
 }
 
 .product-icon svg {
@@ -31,9 +38,9 @@
 
 .product-heading h2 {
     margin: 0;
-    color: #164b63;
-    font-size: 24px;
-    font-weight: 600;
+    color: #123f54;
+    font-size: 21px;
+    font-weight: 700;
 }
 
 
@@ -41,12 +48,13 @@
 
 .product-form {
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 5px auto 0;
     padding: 20px;
     background: #ffffff;
-    border: 1px solid #dfedf1;
-    border-radius: 14px;
+    border: 1px solid #e4f0f4;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(29, 101, 130, 0.06);
 }
 
 
@@ -55,8 +63,8 @@
 .product-label {
     display: block;
     margin: 0 0 7px;
-    color: #365864;
-    font-size: 15px;
+    color: #355765;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -65,23 +73,30 @@
 
 .product-input {
     width: 100%;
-    margin-bottom: 19px;
+    margin-bottom: 18px;
 }
 
 .product-form-input {
     width: 100%;
     height: 45px;
     padding: 0 13px;
-    border: 1px solid #d8e9ed;
+    border: 1px solid #d8e9ee;
     border-radius: 8px;
     outline: none;
     background: #fbfeff;
-    color: #365864;
-    font-size: 15px;
+    color: #294f5f;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.product-form-input::placeholder {
+    color: #9aabb2;
 }
 
 .product-form-input:focus {
     border-color: #159bc5;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(21, 155, 197, 0.08);
 }
 
 
@@ -96,28 +111,32 @@
 
 .water-check {
     flex: 1;
-    min-height: 48px;
+    min-height: 46px;
     padding: 8px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
-    border: 1px solid #d8e9ed;
-    border-radius: 8px;
+    border: 1px solid #d8e9ee;
+    border-radius: 9px;
     background: #fbfeff;
     color: #607b85;
     font-size: 11px;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .water-check input {
+    width: 14px;
+    height: 14px;
     accent-color: #159bc5;
+    cursor: pointer;
 }
 
 .water-check.active {
     border-color: #159bc5;
-    background: #eaf9fc;
-    color: #159bc5;
+    background: #e7f7fc;
+    color: #087fbd;
     font-weight: 600;
 }
 
@@ -127,12 +146,18 @@
 .file-input {
     width: 100%;
     height: 45px;
-    padding: 12px 8px;
+    padding: 11px 8px;
     border: 1px dashed #b9dce5;
     border-radius: 8px;
     background: #f8fdfe;
     color: #6c838c;
     font-size: 11px;
+    cursor: pointer;
+}
+
+.file-input:hover {
+    border-color: #159bc5;
+    background: #f3fcfe;
 }
 
 
@@ -140,18 +165,19 @@
 
 .image-preview {
     width: 100%;
-    margin: -5px 0 18px;
+    margin: -3px 0 18px;
     display: flex;
     justify-content: center;
 }
 
 .image-preview img {
-    width: 110px;
-    height: 110px;
+    width: 115px;
+    height: 115px;
+    padding: 6px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid #dcecef;
-    background: #f7fcfd;
+    background: #f8fdfe;
 }
 
 
@@ -159,7 +185,7 @@
 
 .add-button {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 7px;
 }
 
 .product-button {
@@ -172,12 +198,61 @@
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .product-button:hover {
-    background: #118bad;
+    background: #087fbd;
 }
 
+.product-button:active {
+    transform: scale(0.99);
+}
+
+
+/* Tablet */
+
+@media (min-width: 600px) {
+
+    .add-product {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .product-heading {
+        height: 72px;
+    }
+
+    .product-heading h2 {
+        font-size: 23px;
+    }
+
+    .product-form {
+        padding: 25px;
+    }
+
+    .product-label {
+        font-size: 14px;
+    }
+
+    .product-form-input {
+        height: 47px;
+        font-size: 14px;
+    }
+
+    .water-check {
+        min-height: 48px;
+        font-size: 12px;
+    }
+
+    .product-button {
+        height: 49px;
+        font-size: 14px;
+    }
+}
+
+
+/* Mobile */
 
 @media (max-width: 480px) {
 
@@ -196,6 +271,16 @@
 
     .product-form {
         padding: 16px;
+        border-radius: 14px;
+    }
+
+    .product-label {
+        font-size: 12px;
+    }
+
+    .product-form-input {
+        height: 44px;
+        font-size: 12px;
     }
 
     .water-type-box {
@@ -203,7 +288,28 @@
     }
 
     .water-check {
+        min-height: 44px;
+        padding: 7px 5px;
         font-size: 10px;
-        padding: 7px;
+    }
+
+    .water-check input {
+        width: 13px;
+        height: 13px;
+    }
+
+    .file-input {
+        height: 44px;
+        font-size: 10px;
+    }
+
+    .image-preview img {
+        width: 105px;
+        height: 105px;
+    }
+
+    .product-button {
+        height: 45px;
+        font-size: 12px;
     }
 }
