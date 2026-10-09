@@ -14,6 +14,7 @@ import BottomBar from "./Components/BottomBar";
 import Home from "./Pages/Home";
 import OrderDetail from "./Pages/OrderDetail";
 import EditProfile from "./Pages/EditProfile";
+import CustomerReviews from "./Pages/CustomerReviews";
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/order-detail" element={<OrderDetail />} />
 
         <Route path="/profile" element={<MyProfile />} />
+        <Route path="/customer-review" element={<CustomerReviews />} />
 
         <Route path="/users" element={<Users />} />
 

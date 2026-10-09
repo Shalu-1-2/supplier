@@ -1,14 +1,12 @@
-import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
-
+import React, { useState, useRef } from "react";
+import { FiArrowLeft, FiCamera } from "react-icons/fi";
 import "./EditProfile.css";
 import BottomBar from "../Components/BottomBar";
 
 const EditProfile = () => {
     const navigate = useNavigate();
 
-    // Purana data localStorage se
     const savedSupplier = JSON.parse(localStorage.getItem("supplier")) || {};
 
     const [businessName, setBusinessName] = useState(savedSupplier.businessName || "");
@@ -19,6 +17,35 @@ const EditProfile = () => {
     const [address, setAddress] = useState(savedSupplier.address || "");
     const [supplyRange, setSupplyRange] = useState(savedSupplier.supplyRange || "");
     const [waterType, setWaterType] = useState(savedSupplier.waterType || []);
+
+
+    const fileInputRef = useRef(null);
+
+    const [image, setImage] = useState(savedSupplier.image || "");
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            if (!file.type.startsWith("image/")) {
+                alert("Please select a valid image");
+                return;
+            }
+
+            if (file.size > 2 * 1024 * 1024) {
+                alert("Image size should be less than 2 MB");
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    };
 
     const handleWaterType = (type) => {
         if (waterType.includes(type)) {
@@ -52,6 +79,7 @@ const EditProfile = () => {
             address,
             supplyRange,
             waterType,
+            image
         };
 
         localStorage.setItem("supplier", JSON.stringify(updatedSupplier));
@@ -75,6 +103,32 @@ const EditProfile = () => {
                     </div>
 
                     <form className="ep-form" onSubmit={handleSave}>
+
+                        <div className="ep-image-section">
+                            <div className="ep-image-preview">
+                                {image ? (
+                                    <img src={image} alt="Profile" />
+                                ) : (
+                                    <FiCamera />
+                                )}
+                            </div>
+
+                            <input
+                                type="file"
+                                accept="image/*"
+                                ref={fileInputRef}
+                                onChange={handleImageChange}
+                                hidden
+                            />
+
+                            <button
+                                type="button"
+                                className="ep-image-btn"
+                                onClick={() => fileInputRef.current.click()}
+                            >
+                                <FiCamera /> Change Photo
+                            </button>
+                        </div>
 
                         <div className="ep-group">
                             <label htmlFor="businessName">Business Name</label>

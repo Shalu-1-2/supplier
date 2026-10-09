@@ -1,9 +1,19 @@
+
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
-import { FiArrowLeft, FiEdit, FiUser, FiMapPin, FiMail, FiLogOut } from "react-icons/fi";
-import { MdPhone, MdWaterDrop, MdLocalShipping } from "react-icons/md";
-import { FaStar, FaHome } from "react-icons/fa";
+import {
+    FiArrowLeft,
+    FiEdit,
+    FiUser,
+    FiMapPin,
+    FiMail,
+    FiLogOut,
+    FiPhone,
+    FiChevronRight,
+    FiStar,
+    FiPackage
+} from "react-icons/fi";
+import { MdWaterDrop } from "react-icons/md";
 
 import "../Pages/CSS/MyProfile.css";
 import BottomBar from "../Components/BottomBar";
@@ -11,87 +21,173 @@ import BottomBar from "../Components/BottomBar";
 const MyProfile = () => {
     const navigate = useNavigate();
 
-    // Register me "supplier" key se save hota hai
     const savedSupplier = localStorage.getItem("supplier");
     const supplier = savedSupplier ? JSON.parse(savedSupplier) : null;
 
-    // "10" aaye to "10 km" dikhao, "10 KM" aaye to waisa hi rakho
     const radius = supplier?.supplyRange
         ? /[a-zA-Z]/.test(supplier.supplyRange)
             ? supplier.supplyRange
             : `${supplier.supplyRange} km`
-        : null;
+        : "Not available";
+
+    const waterTypes = Array.isArray(supplier?.waterType)
+        ? supplier.waterType
+            .map(type => type.charAt(0).toUpperCase() + type.slice(1))
+            .join(", ")
+        : "Not available";
 
     const handleLogout = () => {
         navigate("/login", { replace: true });
     };
-
-    const details = [
-        { icon: <FiUser />, label: "Owner Name", value: supplier?.name },
-        { icon: <MdPhone />, label: "Mobile", value: supplier?.phone },
-        { icon: <FiMail />, label: "Email", value: supplier?.email },
-        { icon: <FiMapPin />, label: "Location", value: supplier?.location },
-        { icon: <FaHome />, label: "Address", value: supplier?.address },
-        { icon: <MdLocalShipping />, label: "Supply Radius", value: radius },
-    ];
 
     return (
         <>
             <div className="sp-page">
                 <div className="sp-container">
 
-                    {/* Header */}
-                    <div className="sp-header">
-                        <NavLink to="/home" className="sp-header-btn">
+                    <header className="sp-header">
+                        <button
+                            type="button"
+                            className="sp-back"
+                            onClick={() => navigate(-1)}
+                        >
                             <FiArrowLeft />
-                        </NavLink>
+                        </button>
 
                         <h2>My Profile</h2>
 
-                        <NavLink to="/edit-profile" className="sp-header-btn sp-edit">
+                        <NavLink
+                            to="/edit-profile"
+                            className="sp-edit"
+                            aria-label="Edit Profile"
+                        >
                             <FiEdit />
                         </NavLink>
-                    </div>
+                    </header>
 
-                    {/* Logo + Status */}
-                    <div className="sp-top">
-                        <div className="sp-logo-wrap">
-                            <div className="sp-logo">
-                                <MdWaterDrop className="sp-logo-icon" />
-                                <span>JalMitra</span>
-                            </div>
-                            <span className="sp-status">Active</span>
+                    <section className="sp-profile-card">
+                        <div className="sp-profile-image-wrap">
+                            {supplier?.image ? (
+                                <img
+                                    src={supplier.image}
+                                    alt="Supplier Profile"
+                                    className="sp-profile-image"
+                                />
+                            ) : (
+                                <MdWaterDrop className="sp-default-image" />
+                            )}
                         </div>
 
-                        <h3 className="sp-business">
-                            {supplier?.businessName || "Your Business"}
-                        </h3>
+                        <h3>{supplier?.businessName || "Your Business"}</h3>
 
-                        <div className="sp-rating">
-                            <FaStar className="sp-star" />
+                        <p className="sp-owner-name">
+                            {supplier?.name || "Supplier Name"}
+                        </p>
+
+                        <div className="sp-location">
+                            <FiMapPin />
+                            <span>{supplier?.location || "Location not added"}</span>
+                        </div>
+
+                        <div className="sp-contact-details">
+                            <div className="sp-contact-row">
+                                <FiPhone />
+                                <span>{supplier?.phone || "Phone not added"}</span>
+                            </div>
+
+                            <div className="sp-contact-row">
+                                <FiMail />
+                                <span>{supplier?.email || "Email not added"}</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="sp-stats">
+                        <div className="sp-stat-item">
+                            <FiPackage />
+                            <strong>{radius}</strong>
+                            <span>Supply Radius</span>
+                        </div>
+
+                        <div className="sp-stat-item">
+                            <FiStar />
                             <strong>{supplier?.rating || "0.0"}</strong>
-                            <span>({supplier?.reviews || 0} reviews)</span>
+                            <span>
+                                {supplier?.reviews || 0} Reviews
+                            </span>
                         </div>
-                    </div>
+                    </section>
 
-                    {/* Details */}
-                    <div className="sp-details">
-                        {details.map((item, index) => (
-                            <div className="sp-row" key={index}>
-                                <div className="sp-row-icon">{item.icon}</div>
-                                <span className="sp-row-label">{item.label}</span>
-                                <strong className="sp-row-value">
-                                    {item.value || "Not available"}
-                                </strong>
-                            </div>
-                        ))}
-                    </div>
+                    <section className="sp-menu">
+                        <p className="sp-menu-heading">ACCOUNT</p>
 
-                    {/* Logout */}
-                    <button className="sp-logout" onClick={handleLogout}>
+                        <NavLink
+                            to="/edit-profile"
+                            className="sp-menu-item"
+                        >
+                            <span className="sp-menu-icon">
+                                <FiUser />
+                            </span>
+
+                            <span className="sp-menu-text">
+                                <strong>Edit Profile</strong>
+                                <small>Update your personal details</small>
+                            </span>
+
+                            <FiChevronRight className="sp-menu-arrow" />
+                        </NavLink>
+
+                        <NavLink
+                            to="/customer-review"
+                            className="sp-menu-item"
+                        >
+                            <span className="sp-menu-icon sp-review-icon">
+                                <FiStar />
+                            </span>
+
+                            <span className="sp-menu-text">
+                                <strong>Customer Reviews</strong>
+                                <small>View customer feedback and ratings</small>
+                            </span>
+
+                            <FiChevronRight className="sp-menu-arrow" />
+                        </NavLink>
+
+                        <div className="sp-menu-item sp-water-item">
+                            <span className="sp-menu-icon">
+                                <MdWaterDrop />
+                            </span>
+
+                            <span className="sp-menu-text">
+                                <strong>Water Supply</strong>
+                                <small>{waterTypes}</small>
+                            </span>
+                        </div>
+
+                        <div className="sp-menu-item sp-address-item">
+                            <span className="sp-menu-icon">
+                                <FiMapPin />
+                            </span>
+
+                            <span className="sp-menu-text">
+                                <strong>Business Address</strong>
+                                <small>
+                                    {supplier?.address || "Address not added"}
+                                </small>
+                            </span>
+                        </div>
+                    </section>
+
+                    <button
+                        type="button"
+                        className="sp-logout"
+                        onClick={handleLogout}
+                    >
                         <FiLogOut />
-                        <span>Logout</span>
+                        <span>Log out</span>
                     </button>
+
+                  
 
                 </div>
             </div>
