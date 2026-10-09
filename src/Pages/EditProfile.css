@@ -1,0 +1,173 @@
+.ep-page {
+    min-height: 100vh;
+    background: #f4f8fc;
+    padding-bottom: 80px;
+}
+
+.ep-container {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 16px 20px;
+}
+
+/* Header */
+.ep-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.ep-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a2b3c;
+}
+
+.ep-back {
+    font-size: 22px;
+    color: #1a73e8;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.ep-placeholder {
+    width: 22px;
+}
+
+/* Form */
+.ep-form {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.ep-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.ep-group > label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.ep-group input[type="text"],
+.ep-group input[type="tel"],
+.ep-group input[type="email"],
+.ep-group textarea {
+    padding: 11px 12px;
+    border: 1px solid #d5dde6;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #1a2b3c;
+    outline: none;
+    font-family: inherit;
+    resize: none;
+    transition: 0.2s;
+}
+
+.ep-group input:focus,
+.ep-group textarea:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+}
+
+/* Checkboxes */
+.ep-checks {
+    display: flex;
+    gap: 20px;
+}
+
+.ep-check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Buttons */
+.ep-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ep-cancel,
+.ep-save {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ep-cancel {
+    background: #fff;
+    border: 1px solid #c5ced8;
+    color: #555;
+}
+
+.ep-save {
+    background: #1a73e8;
+    border: 1px solid #1a73e8;
+    color: #fff;
+}
+
+.ep-save:hover {
+    background: #1560c4;
+}
+.ep-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.ep-image-preview {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e8f7fb;
+    border: 3px solid #159bc5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #159bc5;
+    font-size: 35px;
+}
+
+.ep-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ep-image-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid #159bc5;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #159bc5;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ep-image-btn:hover {
+    background: #e8f7fb;
+}

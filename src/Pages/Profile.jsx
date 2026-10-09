@@ -12,14 +12,8 @@ const Profile = () => {
       <h2>Mishra Suppliers</h2>
     </div>
   </div>
-
-
-
-
 </div>
 
-    
-  
     <BottomBar/>
     </>
   )

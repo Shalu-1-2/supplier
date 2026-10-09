@@ -13,6 +13,9 @@ import AddProduct from "./Pages/AddProduct";
 import BottomBar from "./Components/BottomBar";
 import Home from "./Pages/Home";
 import OrderDetail from "./Pages/OrderDetail";
+import EditProfile from "./Pages/EditProfile";
+import CustomerReviews from "./Pages/CustomerReviews";
+
 
 const App = () => {
   return (
@@ -36,11 +39,12 @@ const App = () => {
         <Route path="/order-detail" element={<OrderDetail />} />
 
         <Route path="/profile" element={<MyProfile />} />
+        <Route path="/customer-review" element={<CustomerReviews />} />
 
         <Route path="/users" element={<Users />} />
 
         <Route path="/bottom" element={<BottomBar />} />
-
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
     </Router>
   );

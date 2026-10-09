@@ -1,362 +1,200 @@
-import React from "react";
 
-import { FiArrowLeft } from "react-icons/fi";
-import { FiUser } from "react-icons/fi";
-import { FiMapPin } from "react-icons/fi";
-import { FiPackage } from "react-icons/fi";
-import { FiSettings } from "react-icons/fi";
-import { FiLogOut } from "react-icons/fi";
-import { FiChevronRight } from "react-icons/fi";
-import { MdPhone } from "react-icons/md";
-import { FaHome } from "react-icons/fa";
-import { FaStore } from "react-icons/fa";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+    FiArrowLeft,
+    FiEdit,
+    FiUser,
+    FiMapPin,
+    FiMail,
+    FiLogOut,
+    FiPhone,
+    FiChevronRight,
+    FiStar,
+    FiPackage
+} from "react-icons/fi";
+import { MdWaterDrop } from "react-icons/md";
 
 import "../Pages/CSS/MyProfile.css";
-
-import { NavLink } from "react-router-dom";
 import BottomBar from "../Components/BottomBar";
 
-
 const MyProfile = () => {
+    const navigate = useNavigate();
 
-    // Supplier details localStorage se lena
+    const savedSupplier = localStorage.getItem("supplier");
+    const supplier = savedSupplier ? JSON.parse(savedSupplier) : null;
 
-    const savedSupplier =
-        localStorage.getItem("jalmitraSupplier");
+    const radius = supplier?.supplyRange
+        ? /[a-zA-Z]/.test(supplier.supplyRange)
+            ? supplier.supplyRange
+            : `${supplier.supplyRange} km`
+        : "Not available";
 
-    const supplier = savedSupplier
-        ? JSON.parse(savedSupplier)
-        : null;
+    const waterTypes = Array.isArray(supplier?.waterType)
+        ? supplier.waterType
+            .map(type => type.charAt(0).toUpperCase() + type.slice(1))
+            .join(", ")
+        : "Not available";
 
+    const handleLogout = () => {
+        navigate("/login", { replace: true });
+    };
 
     return (
         <>
+            <div className="sp-page">
+                <div className="sp-container">
 
-            <div className="supplier-profile-page">
+                    <header className="sp-header">
+                        <button
+                            type="button"
+                            className="sp-back"
+                            onClick={() => navigate(-1)}
+                        >
+                            <FiArrowLeft />
+                        </button>
 
-                <div className="supplier-profile-container">
+                        <h2>My Profile</h2>
 
-
-                    {/* Header */}
-
-                    <div className="supplier-profile-header">
-
-                        <NavLink to="/home">
-
-                            <FiArrowLeft className="supplier-back-icon" />
-
+                        <NavLink
+                            to="/edit-profile"
+                            className="sp-edit"
+                            aria-label="Edit Profile"
+                        >
+                            <FiEdit />
                         </NavLink>
+                    </header>
 
-                        <h2>Supplier Profile</h2>
-
-                    </div>
-
-
-
-                    {/* Supplier Basic Card */}
-
-                    <div className="supplier-user-card">
-
-                        <div className="supplier-image">
-
-                            <FaStore className="supplier-store-icon" />
-
+                    <section className="sp-profile-card">
+                        <div className="sp-profile-image-wrap">
+                            {supplier?.image ? (
+                                <img
+                                    src={supplier.image}
+                                    alt="Supplier Profile"
+                                    className="sp-profile-image"
+                                />
+                            ) : (
+                                <MdWaterDrop className="sp-default-image" />
+                            )}
                         </div>
 
+                        <h3>{supplier?.businessName || "Your Business"}</h3>
 
-                        <div className="supplier-info">
+                        <p className="sp-owner-name">
+                            {supplier?.name || "Supplier Name"}
+                        </p>
 
-                            <h3>
-                                {supplier?.businessName ||
-                                    "Your Business"}
-                            </h3>
-
-                            <p>
-
-                                <span>
-                                    <FiUser />
-                                </span>
-
-                                {supplier?.ownerName ||
-                                    "Owner name not added"}
-
-                            </p>
-
+                        <div className="sp-location">
+                            <FiMapPin />
+                            <span>{supplier?.location || "Location not added"}</span>
                         </div>
 
-                    </div>
-
-
-
-                    {/* Supplier Details */}
-
-                    <div className="supplier-details">
-
-                        <h3>Business Details</h3>
-
-
-                        {/* Business Name */}
-
-                        <div className="supplier-detail-item">
-
-                            <div className="supplier-detail-icon">
-
-                                <FaStore />
-
+                        <div className="sp-contact-details">
+                            <div className="sp-contact-row">
+                                <FiPhone />
+                                <span>{supplier?.phone || "Phone not added"}</span>
                             </div>
 
-                            <div className="supplier-detail-info">
-
-                                <span>Business Name</span>
-
-                                <strong>
-                                    {supplier?.businessName ||
-                                        "Not available"}
-                                </strong>
-
+                            <div className="sp-contact-row">
+                                <FiMail />
+                                <span>{supplier?.email || "Email not added"}</span>
                             </div>
+                        </div>
+                    </section>
 
+                    <section className="sp-stats">
+                        <div className="sp-stat-item">
+                            <FiPackage />
+                            <strong>{radius}</strong>
+                            <span>Supply Radius</span>
                         </div>
 
+                        <div className="sp-stat-item">
+                            <FiStar />
+                            <strong>{supplier?.rating || "0.0"}</strong>
+                            <span>
+                                {supplier?.reviews || 0} Reviews
+                            </span>
+                        </div>
+                    </section>
 
+                    <section className="sp-menu">
+                        <p className="sp-menu-heading">ACCOUNT</p>
 
-                        {/* Owner Name */}
-
-                        <div className="supplier-detail-item">
-
-                            <div className="supplier-detail-icon">
-
+                        <NavLink
+                            to="/edit-profile"
+                            className="sp-menu-item"
+                        >
+                            <span className="sp-menu-icon">
                                 <FiUser />
+                            </span>
 
-                            </div>
+                            <span className="sp-menu-text">
+                                <strong>Edit Profile</strong>
+                                <small>Update your personal details</small>
+                            </span>
 
-                            <div className="supplier-detail-info">
+                            <FiChevronRight className="sp-menu-arrow" />
+                        </NavLink>
 
-                                <span>Owner Name</span>
+                        <NavLink
+                            to="/customer-review"
+                            className="sp-menu-item"
+                        >
+                            <span className="sp-menu-icon sp-review-icon">
+                                <FiStar />
+                            </span>
 
-                                <strong>
-                                    {supplier?.ownerName ||
-                                        "Not available"}
-                                </strong>
+                            <span className="sp-menu-text">
+                                <strong>Customer Reviews</strong>
+                                <small>View customer feedback and ratings</small>
+                            </span>
 
-                            </div>
+                            <FiChevronRight className="sp-menu-arrow" />
+                        </NavLink>
 
+                        <div className="sp-menu-item sp-water-item">
+                            <span className="sp-menu-icon">
+                                <MdWaterDrop />
+                            </span>
+
+                            <span className="sp-menu-text">
+                                <strong>Water Supply</strong>
+                                <small>{waterTypes}</small>
+                            </span>
                         </div>
 
-
-
-                        {/* Mobile */}
-
-                        <div className="supplier-detail-item">
-
-                            <div className="supplier-detail-icon">
-
-                                <MdPhone />
-
-                            </div>
-
-                            <div className="supplier-detail-info">
-
-                                <span>Mobile Number</span>
-
-                                <strong>
-                                    {supplier?.mobile ||
-                                        "Not available"}
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-
-                        {/* Location */}
-
-                        <div className="supplier-detail-item">
-
-                            <div className="supplier-detail-icon">
-
+                        <div className="sp-menu-item sp-address-item">
+                            <span className="sp-menu-icon">
                                 <FiMapPin />
+                            </span>
 
-                            </div>
-
-                            <div className="supplier-detail-info">
-
-                                <span>Location</span>
-
-                                <strong>
-                                    {supplier?.location ||
-                                        "Not available"}
-                                </strong>
-
-                            </div>
-
+                            <span className="sp-menu-text">
+                                <strong>Business Address</strong>
+                                <small>
+                                    {supplier?.address || "Address not added"}
+                                </small>
+                            </span>
                         </div>
-
-
-
-                        {/* Address */}
-
-                        <div className="supplier-detail-item">
-
-                            <div className="supplier-detail-icon">
-
-                                <FaHome />
-
-                            </div>
-
-                            <div className="supplier-detail-info">
-
-                                <span>Address</span>
-
-                                <strong>
-                                    {supplier?.address ||
-                                        "Not available"}
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    {/* Supplier Menu */}
-
-                    <div className="supplier-profile-menu">
-
-
-                        {/* Products */}
-
-                        <NavLink
-                            to="/products"
-                            className="supplier-menu-item"
-                        >
-
-                            <div className="supplier-menu-left">
-
-                                <div className="supplier-menu-icon">
-
-                                    <FiPackage />
-
-                                </div>
-
-                                <span>My Products</span>
-
-                            </div>
-
-                            <FiChevronRight className="supplier-chevron" />
-
-                        </NavLink>
-
-
-
-                        {/* Orders */}
-
-                        <NavLink
-                            to="/orders"
-                            className="supplier-menu-item"
-                        >
-
-                            <div className="supplier-menu-left">
-
-                                <div className="supplier-menu-icon">
-
-                                    <FaStore />
-
-                                </div>
-
-                                <span>My Orders</span>
-
-                            </div>
-
-                            <FiChevronRight className="supplier-chevron" />
-
-                        </NavLink>
-
-
-
-                        {/* Business Details */}
-
-                        <div className="supplier-menu-item">
-
-                            <div className="supplier-menu-left">
-
-                                <div className="supplier-menu-icon">
-
-                                    <FiMapPin />
-
-                                </div>
-
-                                <span>Business Details</span>
-
-                            </div>
-
-                            <FiChevronRight className="supplier-chevron" />
-
-                        </div>
-
-
-
-                        {/* Settings */}
-
-                        <div className="supplier-menu-item">
-
-                            <div className="supplier-menu-left">
-
-                                <div className="supplier-menu-icon">
-
-                                    <FiSettings />
-
-                                </div>
-
-                                <span>Settings</span>
-
-                            </div>
-
-                            <FiChevronRight className="supplier-chevron" />
-
-                        </div>
-
-
-
-                        {/* Logout */}
-
-                        <div className="supplier-menu-item logout-item">
-
-                            <div className="supplier-menu-left">
-
-                                <div className="supplier-menu-icon logout-icon">
-
-                                    <FiLogOut />
-
-                                </div>
-
-                                <span>Logout</span>
-
-                            </div>
-
-                            <FiChevronRight className="supplier-chevron" />
-
-                        </div>
-
-
-                    </div>
-
+                    </section>
+
+                    <button
+                        type="button"
+                        className="sp-logout"
+                        onClick={handleLogout}
+                    >
+                        <FiLogOut />
+                        <span>Log out</span>
+                    </button>
+
+                  
 
                 </div>
-
             </div>
 
-
-            {/* Bottom Navigation */}
-
             <BottomBar />
-
         </>
     );
 };
-
 
 export default MyProfile;
