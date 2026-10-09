@@ -5,65 +5,99 @@
 }
 
 .orders-header-outer {
-    height: 100vh;
     width: 100%;
-    margin: 10px auto;
-
-}
-.icons-back{
-    display: flex;
-  justify-content: center;
-font-size: 26px;
-}
-.icons-header{
-    height: 60px;
-    width: 100%;
-    box-shadow: 0px 5px 10px rgb(209, 197, 197);
-    display: flex;
-    justify-content: flex-start;
-    gap:20px;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    overflow-x: hidden;
 }
 
 .orders-outer {
-    margin-top: 10px;
-  margin-left: 12px;
-    height: 50px;
     width: 100%;
+    height: 58px;
+    background: #ffffff;
+}
+
+.icons-back {
+    width: 28px;
+    height: 28px;
     display: flex;
-justify-content: space-between;
-
-
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    color: #263238;
+    cursor: pointer;
 }
 
-
-
-.orders-outer>h1 {
-    font-size: 20px;
-    font-weight: 600;
-    padding: 0 10px;
-
-
-}
-
-.orders-category-outer {
+.icons-header {
+    width: 100%;
+    height: 58px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    padding: 0 23px;
-    margin: 25px 5px;
-    
+    gap: 14px;
+    padding: 0 14px;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(250, 248, 248, 0.1);
+}
 
+.icons-header h1 {
+    font-size: 23px;
+    font-weight: 600;
+    color: #263238;
+    margin: 0;
+}
+
+.order-view {
+    height: 30px;
+    width: 60px;
+    background-color: rgb(24, 90, 190);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
+
+.orders-category-outer {
+    margin-top: 2cap;
+      width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 1px 19px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  
+   
+
+
+}
+.orders-category-outer::-webkit-scrollbar {
+    display: none;
 }
 
 .orders-category-outer button {
-    padding: 14px 6px;
+      border: none;
+    background: #ffffff;
+    color: #1d3153;
+    padding: 8px 12px;
     border-radius: 8px;
-    font-size: 14px;
-    border: none;
-    background-color: white;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.07);
+    transition: 0.2s ease;
+}
 
-
+.orders-category-outer button.active-filter {
+    background: #2878ed;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(40, 120, 237, 0.25);
 }
 
 .orders-category-outer button:hover {
@@ -73,23 +107,23 @@ justify-content: space-between;
 }
 
 .orders-outer-cards {
-    min-height: 700px;
     width: 100%;
-    margin-top: 20px;
-
-
+     padding: 4px 0 20px;
+    /* padding: 4px 6px 20px; */
 }
 
 .orders-outer-card {
-
-    padding: 15px 20px;
-    margin: 20px 24px;
+     width: 100%;
+    min-height: 118px;
+    background: #ffffff;
+    margin: 10px 0;
+    padding: 12px 10px;
     border-radius: 10px;
-    min-height: 120px;
-    box-shadow: 0px 5px 10px rgb(209, 197, 197);
     display: flex;
-    justify-content: space-around;
+    align-items: flex-start;
     gap: 10px;
+    box-shadow: 0 3px 10px rgba(30, 60, 100, 0.10);
+    border: 1px solid #edf2f9;
 
 }
 
@@ -107,13 +141,13 @@ justify-content: space-between;
 
 .orders-image>span {
     position: absolute;
-    right: 8px;
+    right: 10px;
     top: 8px;
     color: white;
 }
 
 .orders-content {
-    padding: 5px 0px;
+    padding: 5px 10px;
     font-size: 17px;
 }
 
@@ -164,7 +198,7 @@ justify-content: space-between;
 
 }
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
 
     .orders-header-outer {
         width: 100%;
@@ -179,7 +213,7 @@ justify-content: space-between;
         height: auto;
     }
 
-    .orders-outer > h1 {
+    .orders-outer>h1 {
         font-size: 20px;
         padding: 0 15px;
     }
@@ -191,13 +225,13 @@ justify-content: space-between;
         gap: 8px;
         padding: 0 15px;
         overflow-x: auto;
-         white-space: nowrap; 
+        white-space: nowrap;
     }
 
     .orders-category-outer button {
         padding: 11px 10px;
-         font-size: 13px;
-         flex-shrink: 0;  
+        font-size: 13px;
+        flex-shrink: 0;
     }
 
     .orders-outer-cards {
@@ -240,7 +274,7 @@ justify-content: space-between;
         gap: 8px;
     }
 
-    .orders-content-h > p {
+    .orders-content-h>p {
         line-height: 1.5;
         overflow-wrap: anywhere;
     }
@@ -258,4 +292,4 @@ justify-content: space-between;
         font-size: 13px;
     }
 
-}  
+}
