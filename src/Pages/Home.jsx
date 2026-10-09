@@ -12,11 +12,14 @@ import { FaRupeeSign } from "react-icons/fa";
 import { FaBoxOpen } from "react-icons/fa";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
+import Notification from "../Components/Notification";
+
 const Home = () => {
 
   return (
     <>
      {/* Header */}
+   
 
         <div className="home-header-top">
 
@@ -26,7 +29,7 @@ const Home = () => {
           </div>
 
           <NavLink to="/notifications" className="header-icon">
-            <IoMdNotificationsOutline />
+            <Notification />
             <span className="notification-dot"></span>
           </NavLink>
 
@@ -337,6 +340,7 @@ const Home = () => {
       </div>
 
 
+<Notification/>
       {/* Bottom Navigation */}
 
       <BottomBar />

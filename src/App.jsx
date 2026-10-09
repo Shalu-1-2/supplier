@@ -13,6 +13,8 @@ import AddProduct from "./Pages/AddProduct";
 import BottomBar from "./Components/BottomBar";
 import Home from "./Pages/Home";
 import OrderDetail from "./Pages/OrderDetail";
+import EditProduct from "./Pages/EditProduct";
+import Notification from "./Components/Notification";
 
 const App = () => {
   return (
@@ -40,6 +42,8 @@ const App = () => {
         <Route path="/users" element={<Users />} />
 
         <Route path="/bottom" element={<BottomBar />} />
+        <Route path="/edit-product/:id" element={<EditProduct />} />
+        <Route path="/notifications" element={<Notification />} />
 
       </Routes>
     </Router>
