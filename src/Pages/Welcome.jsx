@@ -37,7 +37,7 @@ const Welcome = () => {
         </p>
 
         <NavLink
-          to="/home"
+          to="/Register"
           className="get-started-btn"
         >
           Get Started

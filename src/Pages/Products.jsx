@@ -30,7 +30,6 @@ const Products = () => {
 
       </div>
 
-
       <div className="myproduct-outer">
 
         <h2>My Products</h2>
@@ -45,29 +44,31 @@ const Products = () => {
 
       </div>
 
+      {products.length === 0 ? (
 
-      <div className="my-products-supply">
+        <div className="no-product">
 
-        {products.length === 0 ? (
+          <h3>No Products Added</h3>
 
-          <div className="no-product">
-            <h3>No Products Added</h3>
-            <p>
-              Add your first water product to start selling.
-            </p>
+          <p>
+            Add your first water product to start selling.
+          </p>
 
-            <NavLink
-              to="/add-product"
-              className="add-product-btn"
-            >
-              <FaPlus />
-              Add Product
-            </NavLink>
-          </div>
+          <NavLink
+            to="/add-product"
+            className="add-product-btn"
+          >
+            <FaPlus />
+            Add Product
+          </NavLink>
 
-        ) : (
+        </div>
 
-          products.map((product) => (
+      ) : (
+
+        <div className="my-products-supply">
+
+          {products.map((product) => (
 
             <div
               className="my-products-card"
@@ -87,7 +88,6 @@ const Products = () => {
 
               </div>
 
-
               <div className="product-supply">
 
                 <h3>{product.productName}</h3>
@@ -96,13 +96,14 @@ const Products = () => {
 
                 <p>
                   Water Type:{" "}
-                  {product.waterType.join(", ")}
+                  {Array.isArray(product.waterType)
+                    ? product.waterType.join(", ")
+                    : product.waterType}
                 </p>
 
                 <p>
                   Capacity: {product.capacity}
                 </p>
-
 
                 <div className="my-product-price">
 
@@ -123,12 +124,11 @@ const Products = () => {
 
             </div>
 
-          ))
+          ))}
 
-        )}
+        </div>
 
-      </div>
-
+      )}
 
       <BottomBar />
 

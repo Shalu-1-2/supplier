@@ -15,36 +15,29 @@ import Home from "./Pages/Home";
 import OrderDetail from "./Pages/OrderDetail";
 import EditProduct from "./Pages/EditProduct";
 import Notification from "./Components/Notification";
+import EditProfile from "./Pages/EditProfile";
+import CustomerReviews from "./Pages/CustomerReviews";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-
         <Route path="/" element={<Splash />} />
-
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/welcome" element={<Welcome />} />
-
-
         <Route path="/home" element={<Home />} />
-
         <Route path="/orders" element={<Orders />} />
-
         <Route path="/products" element={<Products />} />
         <Route path="/add-product" element={<AddProduct />} />
-
         <Route path="/order-detail" element={<OrderDetail />} />
-
         <Route path="/profile" element={<MyProfile />} />
-
+        <Route path="/customer-review" element={<CustomerReviews />} />
         <Route path="/users" element={<Users />} />
-
         <Route path="/bottom" element={<BottomBar />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
         <Route path="/notifications" element={<Notification />} />
-
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
     </Router>
   );
