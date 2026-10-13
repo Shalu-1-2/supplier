@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CSS/Register.css'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        const supplier = localStorage.getItem("supplier")
+
+        if(supplier){
+            navigate("/login", {replace: true})
+        }
+    }, [navigate])
 
     const [businessName, setBusinessName] = useState("")
     const [name, setName] = useState("")
@@ -19,6 +27,7 @@ const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+    const [existingSupplier, setExistingSupplier] = useState('')
 
     // Water type checkbox toggle
     const handleWaterType = (type) => {
@@ -31,6 +40,12 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
+
+        if(existingSupplier){
+            alert("You are already registered. please login.")
+            navigate("/login",{replace:true})
+            return
+        }
 
         if (password !== confirmPassword) {
             alert("Password and Confirm Password do not match")

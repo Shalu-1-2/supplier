@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CSS/AddProduct.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
+import BottomBar from "../Components/BottomBar";
 
 const AddProduct = () => {
 
@@ -116,6 +117,7 @@ const AddProduct = () => {
 
 
     return (
+        <>
         <div className="add-product">
 
             {/* Heading */}
@@ -328,6 +330,8 @@ const AddProduct = () => {
             </form>
 
         </div>
+        <BottomBar/>
+        </>
     );
 };
 

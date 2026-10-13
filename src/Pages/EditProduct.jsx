@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "../Pages/CSS/EditProduct.css";
+import BottomBar from "../Components/BottomBar";
 
 const EditProduct = () => {
 
@@ -120,6 +121,7 @@ const EditProduct = () => {
 
 
     return (
+       <>
         <div className="edit-product">
 
             <div className="edit-product-heading">
@@ -243,6 +245,8 @@ const EditProduct = () => {
             </form>
 
         </div>
+        <BottomBar/>
+       </>
     );
 
 };
