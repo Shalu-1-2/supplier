@@ -83,7 +83,6 @@ const CustomerReviews = () => {
 
                         <div className="cr-header-text">
                             <h2>Customer Reviews</h2>
-                            <p>Real feedback from our valued customers</p>
                         </div>
                     </header>
 
@@ -100,10 +99,7 @@ const CustomerReviews = () => {
                                     <MdWaterDrop className="cr-supplier-default" />
                                 )}
 
-                                <span className="cr-active-badge">
-                                    <span></span>
-                                    Active
-                                </span>
+                            
                             </div>
 
                             <div className="cr-supplier-info">

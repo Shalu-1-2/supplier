@@ -45,7 +45,7 @@ const Login = () => {
                  
 
                     <span className="login-brand-name">
-                        <img src="./public/logo-bg.png" alt=""  />
+                        <img src="./public/logo-bg.png" alt="loginimg"  className='loginimg' />
                     </span>
 
                 </div>
